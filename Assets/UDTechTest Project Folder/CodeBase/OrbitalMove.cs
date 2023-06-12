@@ -16,12 +16,7 @@ namespace CodeBase
         private readonly string _mouseScroll = "Mouse ScrollWheel";
         private readonly string _mouseOffsetX = "Mouse X";
         
-        private void OnEnable()
-        {
-            GameBootstrapper.Instance.CameraModeController.CameraParentSetup(true);
-            SetupPosition();
-        }
-
+        private void OnEnable() => SetupPosition();
 
         private void SetupPosition()
         {

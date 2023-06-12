@@ -16,10 +16,7 @@ namespace CodeBase
 
         private TypeMode _activeMode;
 
-        private void Awake()
-        {
-            OrbitalMode();
-        }
+        private void Awake() => OrbitalMode();
 
         public void ChangeMode(TypeMode mode)
         {
@@ -46,19 +43,13 @@ namespace CodeBase
             _orbitalMoveComponent.enabled = true;
             
             _activeMode = TypeMode.Orbital;
+
+            CameraParentSetup(true);
         }
 
-        public void CameraParentSetup(bool isOrbital)
-        {
-            if (isOrbital == false)
-            {
-                _camera.transform.SetParent(_parentStandaloneMode.transform, false);
-            }
-            else
-            {
-                _camera.transform.SetParent(_parentOrbitalMode.transform, false);
-            }
-        }
+        private void CameraParentSetup(bool isOrbital) =>
+            _camera.transform.SetParent(
+                isOrbital == false ? _parentStandaloneMode.transform : _parentOrbitalMode.transform, false);
 
         private void FirstPersonMode()
         {
@@ -66,6 +57,8 @@ namespace CodeBase
             _standaloneFpMoveComponent.enabled = true;
             
             _activeMode = TypeMode.FirstPerson;
+            
+            CameraParentSetup(false);
         }
     }
 }

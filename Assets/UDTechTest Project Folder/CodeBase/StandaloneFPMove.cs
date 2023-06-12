@@ -70,14 +70,10 @@ namespace CodeBase
 
         private CameraModeController _cameraModeController;
 
-        private void Awake()
-        {
-            _cameraModeController = GameBootstrapper.Instance.CameraModeController;
-        }
+        private void Awake() => _cameraModeController = GameBootstrapper.Instance.CameraModeController;
 
         private void OnEnable()
         {
-            _cameraModeController.CameraParentSetup(false);
             SetupPosition();
             m_TargetCameraState.SetFromTransform(transform);
         }

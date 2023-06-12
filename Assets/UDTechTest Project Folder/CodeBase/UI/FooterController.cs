@@ -16,10 +16,7 @@ namespace CodeBase.UI
             ChangeVisibilityFaqPanel(true);
         }
 
-        private void OnDisable()
-        {
-            _headerController.OnClickButton -= ChangeFaqMode;
-        }
+        private void OnDisable() => _headerController.OnClickButton -= ChangeFaqMode;
 
         private void ChangeFaqMode(TypeMode typeMode)
         {
